@@ -26,7 +26,7 @@ namespace NPetrovich.Tests.Fixtures
         public void Should_inflect_first_name_correctly(string firstName, Gender gender, Case @case, string expected)
         {
             var actual = new CaseInflection(provider, gender).InflectFirstNameTo(firstName, @case);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual, string.Format("Gender: {0}, Case: {1}", gender, @case));
         }
 
         [Test]
@@ -34,7 +34,7 @@ namespace NPetrovich.Tests.Fixtures
         public void Should_inflect_last_name_correctly(string lastName, Gender gender, Case @case, string expected)
         {
             var actual = new CaseInflection(provider, gender).InflectLastNameTo(lastName, @case);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual, string.Format("Gender: {0}, Case: {1}", gender, @case));
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace NPetrovich.Tests.Fixtures
         public void Should_inflect_middle_name_correctly(string middleName, Gender gender, Case @case, string expected)
         {
             var actual = new CaseInflection(provider, gender).InflectMiddleNameTo(middleName, @case);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual, string.Format("Gender: {0}, Case: {1}", gender, @case));
         }
 
         public class InflectionTestCaseDataFactory
