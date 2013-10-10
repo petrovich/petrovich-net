@@ -55,10 +55,10 @@ petrovich.DetectGender();
 System.Console.WriteLine(petrovich.Gender); // Male
 ```
 
-Also you can use `GenderTools` to detect gender based on middle name:
+Also you can use `GenderUtils` to detect gender based on middle name:
 
 ```csharp
-Gender gender = Petrovich.DetectGender("Иванович");
+Gender gender = GenderUtils.Detect("Иванович");
 System.Console.WriteLine(gender); // Male
 ```
 

@@ -4,12 +4,9 @@ namespace NPetrovich.Utils
 {
     public static class GenderUtils
     {
-        private const string ExceptionMessage = "You must specify middle name to detect gender";
-        private const string ParameterName = "middleName";
-
         public static Gender Detect(string middleName)
         {
-            Guard.IfArgumentNullOrWhitespace(middleName, ParameterName, ExceptionMessage);
+            Guard.IfArgumentNullOrWhitespace(middleName, "middleName", "You must specify middle name to detect gender");
 
             if (middleName.EndsWith("ич", true, CultureInfo.InvariantCulture))
                 return Gender.Male;
@@ -18,13 +15,6 @@ namespace NPetrovich.Utils
                 return Gender.Female;
 
             return Gender.Androgynous;
-        }
-
-        public static Gender DetectGender(string middleName)
-        {
-            Guard.IfArgumentNullOrWhitespace(middleName, ParameterName, ExceptionMessage);
-
-            return Detect(middleName);
         }
     }
 }

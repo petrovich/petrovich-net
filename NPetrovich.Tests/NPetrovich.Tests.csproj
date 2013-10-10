@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unit\GenderToolsFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -53,6 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Specs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NPetrovich\NPetrovich.csproj">
+      <Project>{062D7B36-6921-495E-AF54-2CC37473545C}</Project>
+      <Name>NPetrovich</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
