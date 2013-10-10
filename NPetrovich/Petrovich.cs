@@ -24,6 +24,10 @@ namespace NPetrovich
 
         public Petrovich InflectTo(Case @case)
         {
+            Guard.IfArgumentNullOrWhitespace(FirstName, "FirstName", "First name was not provided");
+            Guard.IfArgumentNullOrWhitespace(LastName, "LastName", "Last name was not provided");
+            Guard.IfArgumentNullOrWhitespace(MiddleName, "MiddleName", "Middle name was not provided");
+
             var inflection = new CaseInflection(provider, Gender);
 
             FirstName = inflection.InflectFirstNameTo(FirstName, @case);
@@ -35,16 +39,19 @@ namespace NPetrovich
 
         public string InflectFirstNameTo(Case @case)
         {
+            Guard.IfArgumentNullOrWhitespace(FirstName, "FirstName", "First name was not provided");
             return new CaseInflection(provider, Gender).InflectFirstNameTo(FirstName, @case);
         }
 
         public string InflectLastNameTo(Case @case)
         {
+            Guard.IfArgumentNullOrWhitespace(LastName, "FirstName", "Last name was not provided");
             return new CaseInflection(provider, Gender).InflectLastNameTo(LastName, @case);
         }
 
         public string InflectMiddleNameTo(Case @case)
         {
+            Guard.IfArgumentNullOrWhitespace(MiddleName, "FirstName", "Middle name was not provided");
             return new CaseInflection(provider, Gender).InflectMiddleNameTo(MiddleName, @case);
         }
 

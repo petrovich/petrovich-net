@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NPetrovich.Utils
 {
@@ -21,7 +17,7 @@ namespace NPetrovich.Utils
         }
 
         #region Throw utils
-        internal static void ThrowArgumentNullException(string parameterName, string message)
+        private static void ThrowArgumentNullException(string parameterName, string message)
         {
             parameterName = string.IsNullOrWhiteSpace(parameterName) ? "value" : parameterName;
 
