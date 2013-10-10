@@ -53,19 +53,7 @@ namespace NPetrovich.Tests.Fixtures
                 {
                     using (var reader = new StreamReader(Path.Combine("Data", "LastNames.csv")))
                     {
-                        string line;
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            if (string.IsNullOrWhiteSpace(line))
-                                continue;
-                            
-                            var chunks = line.Split(',').Select(s => s.Trim()).ToList();
-
-                            var gender = (Gender) Enum.Parse(typeof (Gender), chunks[1]);
-                            var @case = (Case) Enum.Parse(typeof (Case), chunks[2]);
-
-                            yield return new object[] {chunks[0], gender, @case, chunks[3]};
-                        }
+                        foreach (var p in ReadCaseData(reader)) yield return p;
                     }
                 }
             }
@@ -76,19 +64,7 @@ namespace NPetrovich.Tests.Fixtures
                 {
                     using (var reader = new StreamReader(Path.Combine("Data", "FirstNames.csv")))
                     {
-                        string line;
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            if (string.IsNullOrWhiteSpace(line))
-                                continue;
-
-                            var chunks = line.Split(',').Select(s => s.Trim()).ToList();
-
-                            var gender = (Gender)Enum.Parse(typeof(Gender), chunks[1]);
-                            var @case = (Case)Enum.Parse(typeof(Case), chunks[2]);
-
-                            yield return new object[] { chunks[0], gender, @case, chunks[3] };
-                        }
+                        foreach (var p in ReadCaseData(reader)) yield return p;
                     }
                 }
             }
@@ -99,22 +75,28 @@ namespace NPetrovich.Tests.Fixtures
                 {
                     using (var reader = new StreamReader(Path.Combine("Data", "MiddleNames.csv")))
                     {
-                        string line;
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            if (string.IsNullOrWhiteSpace(line))
-                                continue;
-
-                            var chunks = line.Split(',').Select(s => s.Trim()).ToList();
-
-                            var gender = (Gender)Enum.Parse(typeof(Gender), chunks[1]);
-                            var @case = (Case)Enum.Parse(typeof(Case), chunks[2]);
-
-                            yield return new object[] { chunks[0], gender, @case, chunks[3] };
-                        }
+                        foreach (var p in ReadCaseData(reader)) yield return p;
                     }
                 }
             }
+
+            private static IEnumerable ReadCaseData(StreamReader reader)
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (string.IsNullOrWhiteSpace(line))
+                        continue;
+
+                    var chunks = line.Split(',').Select(s => s.Trim()).ToList();
+
+                    var gender = (Gender)Enum.Parse(typeof(Gender), chunks[1]);
+                    var @case = (Case)Enum.Parse(typeof(Case), chunks[2]);
+
+                    yield return new object[] { chunks[0], gender, @case, chunks[3] };
+                }
+            }
+
         }
 
     }
