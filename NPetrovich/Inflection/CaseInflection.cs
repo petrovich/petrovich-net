@@ -57,10 +57,17 @@ namespace NPetrovich.Inflection
         {
             foreach (var @char in FindCaseModificator(@case, rule))
             {
-                if (@char.Equals('.') || @char.Equals('-'))
-                    name = name.Substring(0, name.Length - 1);
-                else
-                    name += @char;
+                switch (@char)
+                {
+                    case '.':
+                        break;
+                    case '-':
+                        name = name.Substring(0, name.Length - 1);
+                        break;
+                    default:
+                        name += @char;
+                        break;
+                }
             }
                 
             return name;
