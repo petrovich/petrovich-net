@@ -48,8 +48,7 @@ var petrovich = new Petrovich()
     {
         FirstName = "Иван",
         LastName = "Иванов",
-        MiddleName = "Иванович",
-        Gender = Gender.Male
+        MiddleName = "Иванович"
     };
 
 petrovich.DetectGender();
