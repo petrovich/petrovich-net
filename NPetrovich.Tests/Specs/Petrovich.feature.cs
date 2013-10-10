@@ -32,8 +32,8 @@ namespace NPetrovich.Tests.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Petrovich", "In order to avoid silly mistakes\r\nAs a math idiot\r\nI want to be told the sum of t" +
-                    "wo numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Petrovich", "In order to have ability of case inflection\r\nPetrovich library\r\nShould inflect ru" +
+                    "ssian names correctly", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -66,22 +66,49 @@ namespace NPetrovich.Tests.Specs
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void AddTwoNumbers()
+        [NUnit.Framework.DescriptionAttribute("Inflect names")]
+        public virtual void InflectNames()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", new string[] {
-                        "mytag"});
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Inflect names", ((string[])(null)));
+#line 6
 this.ScenarioSetup(scenarioInfo);
-#line 8
- testRunner.Given("I have entered 50 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
- testRunner.And("I have entered 70 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
- testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 11
- testRunner.Then("the result should be 120 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name",
+                        "Gender",
+                        "Case",
+                        "Expected"});
+            table1.AddRow(new string[] {
+                        "Иванов Иван Иванович",
+                        "Male",
+                        "Genitive",
+                        "Иванова Ивана Ивановича"});
+            table1.AddRow(new string[] {
+                        "Иванов Иван Иванович",
+                        "Male",
+                        "Dative",
+                        "Иванову Ивану Ивановичу"});
+            table1.AddRow(new string[] {
+                        "Иванов Иван Иванович",
+                        "Male",
+                        "Accusative",
+                        "Иванова Ивана Ивановича"});
+            table1.AddRow(new string[] {
+                        "Иванов Иван Иванович",
+                        "Male",
+                        "Instrumental",
+                        "Ивановым Иваном Ивановичем"});
+            table1.AddRow(new string[] {
+                        "Иванов Иван Иванович",
+                        "Male",
+                        "Prepositional",
+                        "Иванове Иване Ивановиче"});
+#line 7
+ testRunner.Given("I have list of names, genders and expected inflections", ((string)(null)), table1, "Given ");
+#line 14
+ testRunner.When("I try to inflect names", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 15
+ testRunner.Then("the result should be correct", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
