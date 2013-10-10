@@ -48,7 +48,13 @@
     <Compile Include="Fixtures\CaseInflectionFixture.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\inflection.csv">
+    <Content Include="Data\FirstNames.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\LastNames.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\MiddleNames.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />

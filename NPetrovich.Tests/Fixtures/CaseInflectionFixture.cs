@@ -22,25 +22,36 @@ namespace NPetrovich.Tests.Fixtures
         }
 
         [Test]
-        [TestCaseSource(typeof(InflectionTestCaseDataFactory), "InflectionData")]
-        public void Should_inflect_first_name_correctly(string fullName, Gender gender, Case @case, string expected)
+        [TestCaseSource(typeof(InflectionTestCaseDataFactory), "FirstNamesInflectionData")]
+        public void Should_inflect_first_name_correctly(string firstName, Gender gender, Case @case, string expected)
         {
-            var inflection = new CaseInflection(provider, gender);
-            var names = fullName.Split(' ');
+            var actual = new CaseInflection(provider, gender).InflectFirstNameTo(firstName, @case);
+            Assert.AreEqual(expected, actual);
+        }
 
-            var lastName = inflection.InflectLastNameTo(names[0], @case);
-            var firstName = inflection.InflectFirstNameTo(names[1], @case);
-            var middleName = inflection.InflectMiddleNameTo(names[2], @case);
-            Assert.AreEqual(expected, string.Format("{0} {1} {2}", lastName, firstName, middleName));
+        [Test]
+        [TestCaseSource(typeof(InflectionTestCaseDataFactory), "LastNamesInflectionData")]
+        public void Should_inflect_last_name_correctly(string lastName, Gender gender, Case @case, string expected)
+        {
+            var actual = new CaseInflection(provider, gender).InflectLastNameTo(lastName, @case);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        [TestCaseSource(typeof(InflectionTestCaseDataFactory), "MiddleNamesInflectionData")]
+        public void Should_inflect_middle_name_correctly(string middleName, Gender gender, Case @case, string expected)
+        {
+            var actual = new CaseInflection(provider, gender).InflectMiddleNameTo(middleName, @case);
+            Assert.AreEqual(expected, actual);
         }
 
         public class InflectionTestCaseDataFactory
         {
-            public static IEnumerable InflectionData
+            public static IEnumerable LastNamesInflectionData
             {
                 get
                 {
-                    using (var reader = new StreamReader(Path.Combine("Data", "inflection.csv")))
+                    using (var reader = new StreamReader(Path.Combine("Data", "LastNames.csv")))
                     {
                         string line;
                         while ((line = reader.ReadLine()) != null)
@@ -54,6 +65,52 @@ namespace NPetrovich.Tests.Fixtures
                             var @case = (Case) Enum.Parse(typeof (Case), chunks[2]);
 
                             yield return new object[] {chunks[0], gender, @case, chunks[3]};
+                        }
+                    }
+                }
+            }
+
+            public static IEnumerable FirstNamesInflectionData
+            {
+                get
+                {
+                    using (var reader = new StreamReader(Path.Combine("Data", "FirstNames.csv")))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (string.IsNullOrWhiteSpace(line))
+                                continue;
+
+                            var chunks = line.Split(',').Select(s => s.Trim()).ToList();
+
+                            var gender = (Gender)Enum.Parse(typeof(Gender), chunks[1]);
+                            var @case = (Case)Enum.Parse(typeof(Case), chunks[2]);
+
+                            yield return new object[] { chunks[0], gender, @case, chunks[3] };
+                        }
+                    }
+                }
+            }
+
+            public static IEnumerable MiddleNamesInflectionData
+            {
+                get
+                {
+                    using (var reader = new StreamReader(Path.Combine("Data", "MiddleNames.csv")))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (string.IsNullOrWhiteSpace(line))
+                                continue;
+
+                            var chunks = line.Split(',').Select(s => s.Trim()).ToList();
+
+                            var gender = (Gender)Enum.Parse(typeof(Gender), chunks[1]);
+                            var @case = (Case)Enum.Parse(typeof(Case), chunks[2]);
+
+                            yield return new object[] { chunks[0], gender, @case, chunks[3] };
                         }
                     }
                 }
