@@ -40,19 +40,19 @@ namespace NPetrovich
         public string InflectFirstNameTo(Case @case)
         {
             Guard.IfArgumentNullOrWhitespace(FirstName, "FirstName", "First name was not provided");
-            return new CaseInflection(provider, Gender).InflectFirstNameTo(FirstName, @case);
+            return FirstName = new CaseInflection(provider, Gender).InflectFirstNameTo(FirstName, @case);
         }
 
         public string InflectLastNameTo(Case @case)
         {
             Guard.IfArgumentNullOrWhitespace(LastName, "FirstName", "Last name was not provided");
-            return new CaseInflection(provider, Gender).InflectLastNameTo(LastName, @case);
+            return LastName = new CaseInflection(provider, Gender).InflectLastNameTo(LastName, @case);
         }
 
         public string InflectMiddleNameTo(Case @case)
         {
             Guard.IfArgumentNullOrWhitespace(MiddleName, "FirstName", "Middle name was not provided");
-            return new CaseInflection(provider, Gender).InflectMiddleNameTo(MiddleName, @case);
+            return MiddleName = new CaseInflection(provider, Gender).InflectMiddleNameTo(MiddleName, @case);
         }
 
         public void DetectGender()
