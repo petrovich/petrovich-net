@@ -20,11 +20,11 @@ namespace NPetrovich.Utils
             return Gender.Androgynous;
         }
 
-        public static Gender DetectGender(this Petrovich petrovich)
+        public static Gender DetectGender(string middleName)
         {
-            Guard.IfArgumentNullOrWhitespace(petrovich.MiddleName, ParameterName, ExceptionMessage);
+            Guard.IfArgumentNullOrWhitespace(middleName, ParameterName, ExceptionMessage);
 
-            return Detect(petrovich.MiddleName);
+            return Detect(middleName);
         }
     }
 }
