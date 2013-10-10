@@ -1,4 +1,4 @@
-NPetrovich
+ÔªøNPetrovich
 ==========
 
 NPetrovich is C#/.NET port of [Petrovich](https://github.com/rocsci/petrovich) ruby gem.
@@ -12,12 +12,18 @@ Just reference NPetrovich dll to your project. Nuget package coming soon
 Basic usage
 
 ```csharp
-var petrovich = new Petrovich() { FirstName = "»‚‡Ì", LastName = "", MiddleName = "", Gender = Gender.Male };
+var petrovich = new Petrovich() 
+	{ 
+		FirstName = "–ò–≤–∞–Ω",
+		LastName = "–ò–≤–∞–Ω–æ–≤",
+		MiddleName = "–ò–≤–∞–Ω–æ–≤–∏—á",
+		Gender = Gender.Male 
+	};
 petrovich.InflectTo(Case.Dative);
 
-// petrovich.FirstName = »‚‡ÌÛ
-// petrovich.LastName = »‚‡ÌÓ‚Û
-// petrovich.MiddleName = »‚‡ÌÓ‚Ë˜Û
+// petrovich.FirstName = –ò–≤–∞–Ω—É
+// petrovich.LastName = –ò–≤–∞–Ω–æ–≤—É
+// petrovich.MiddleName = –ò–≤–∞–Ω–æ–≤–∏—á—É
 ```
 
 ## To be done
