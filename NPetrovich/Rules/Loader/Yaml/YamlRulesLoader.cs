@@ -3,7 +3,7 @@ using YamlDotNet.RepresentationModel.Serialization;
 
 namespace NPetrovich.Rules.Loader.Yaml
 {
-    internal class YamlRulesLoader : IRulesLoader
+    public class YamlRulesLoader : IRulesLoader
     {
         private readonly string path;
 

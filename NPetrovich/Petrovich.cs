@@ -8,14 +8,14 @@ namespace NPetrovich
 {
     public class Petrovich
     {
-        public Petrovich()
-        {
-            loader = new YamlRulesLoader("rules.yml");
-            provider = new RulesProvider(loader);
-        }
-
         private readonly IRulesLoader loader;
         private readonly RulesProvider provider;
+
+        public Petrovich(IRulesLoader rulesLoader = null)
+        {
+            loader = rulesLoader ?? new YamlRulesLoader("rules.yml");
+            provider = new RulesProvider(loader);
+        }
 
         public virtual bool AutoDetectGender { get; set; }
 
