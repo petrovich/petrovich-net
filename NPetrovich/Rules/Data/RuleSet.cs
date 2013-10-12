@@ -3,7 +3,7 @@ using YamlDotNet.RepresentationModel.Serialization;
 
 namespace NPetrovich.Rules.Data
 {
-    internal class RuleSet
+    public class RuleSet
     {
         [YamlAlias("exceptions")]
         public List<Rule> Exceptions { get; set; }

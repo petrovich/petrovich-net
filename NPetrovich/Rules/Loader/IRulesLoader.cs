@@ -1,7 +1,7 @@
 ﻿
 namespace NPetrovich.Rules.Loader
 {
-    internal interface IRulesLoader
+    public interface IRulesLoader
     {
         Data.Rules Load();
     }

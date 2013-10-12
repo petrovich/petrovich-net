@@ -2,7 +2,7 @@
 
 namespace NPetrovich.Rules.Data
 {
-    internal class Rules
+    public class Rules
     {
         [YamlAlias("lastname")]
         public RuleSet LastName { get; set; }

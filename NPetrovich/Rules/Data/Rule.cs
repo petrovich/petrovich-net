@@ -3,7 +3,7 @@ using YamlDotNet.RepresentationModel.Serialization;
 
 namespace NPetrovich.Rules.Data
 {
-    internal class Rule
+    public class Rule
     {
         [YamlAlias("gender")]
         public string Gender { get; set; }
