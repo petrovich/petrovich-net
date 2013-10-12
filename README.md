@@ -3,7 +3,7 @@
 
 NPetrovich is library which inflects Russian names to given grammatical case. It supports first names, last names and middle names inflections.
 
-NPetrovich is C#/.NET port of [Petrovich](https://github.com/rocsci/petrovich) ruby gem.
+NPetrovich is C#/.NET implementation of [Petrovich](https://github.com/rocsci/petrovich) ruby gem.
 
 ## Installation
 
