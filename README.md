@@ -1,6 +1,8 @@
 ﻿NPetrovich
 ==========
 
+NPetrovich is library which inflects Russian names to given grammatical case. It supports first names, last names and middle names inflections.
+
 NPetrovich is C#/.NET port of [Petrovich](https://github.com/rocsci/petrovich) ruby gem.
 
 ## Installation
@@ -17,7 +19,7 @@ Use Visual Studio 2012 or newer to build solution.
 
 ## Usage
 
-Basic usage:
+### Basic usage
 
 ```csharp
 var petrovich = new Petrovich()
@@ -63,11 +65,27 @@ Gender gender = GenderUtils.Detect("Иванович");
 System.Console.WriteLine(gender); // Male
 ```
 
+### Advanced usage
+
+You can use your own rules loeder which implements IRulesLoader interface:
+
+```csharp
+IRulesLoader customLoader = new CustomRulesLoader("CustomRulesFile.CustomExtension");
+var petrovich = new Petrovich(customLoader);
+```
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create new Pull Request
+
+You can also support project by reporting issues or suggesting new features and improvements.
+
 ## To be done
 
 * Add documentation
 * Add comments to the code
 * Nuget package
-* Add tests
-* Add different rules format support
-* Do some refactorings
