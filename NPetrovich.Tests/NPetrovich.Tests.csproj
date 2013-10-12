@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fixtures\PetrovichFixture.cs" />
+    <Compile Include="Fixtures\RulesFixture.cs" />
     <Compile Include="Fixtures\RulesProviderFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Fixtures\GenderToolsFixture.cs" />
