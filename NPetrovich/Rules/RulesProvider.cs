@@ -1,13 +1,12 @@
-﻿using System;
+﻿using NPetrovich.Rules.Loader;
+using System;
 using System.Threading;
-using NPetrovich.Rules.Loader;
 
 namespace NPetrovich.Rules
 {
     internal class RulesProvider
     {
         private readonly Lazy<Data.Rules> rules;
-
         private readonly IRulesLoader loader;
 
         public Data.Rules Rules { get { return rules.Value; } }
@@ -18,7 +17,5 @@ namespace NPetrovich.Rules
 
             rules = new Lazy<Data.Rules>(loader.Load, LazyThreadSafetyMode.ExecutionAndPublication);
         }
-
-
     }
 }

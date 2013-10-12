@@ -48,10 +48,11 @@ var petrovich = new Petrovich()
     {
         FirstName = "Иван",
         LastName = "Иванов",
-        MiddleName = "Иванович"
+        MiddleName = "Иванович",
+        AutoDetectGender = true
     };
 
-petrovich.DetectGender();
+petrovich.InflectTo(Case.Dative);
 System.Console.WriteLine(petrovich.Gender); // Male
 ```
 

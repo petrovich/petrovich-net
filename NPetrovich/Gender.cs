@@ -2,8 +2,8 @@
 {
     public enum Gender
     {
+        Androgynous,
         Male,
-        Female,
-        Androgynous
+        Female
     }
 }
