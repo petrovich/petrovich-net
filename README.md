@@ -14,8 +14,7 @@ PS. Nuget package coming soon
 
 ## Building
 
-Use Visual Studio 2012 or newer to build solution.
-`Allow Nuget to download missing packages` option should be turned on in package manager.
+Run `build.ps1` script with Powershell to build solution. You can find output binaries in the `bin` directory.
 
 ## Usage
 
@@ -89,3 +88,4 @@ You can also support project by reporting issues or suggesting new features and 
 * Add documentation
 * Add comments to the code
 * Nuget package
+* Add msbuild build scripts
