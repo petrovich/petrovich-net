@@ -26,11 +26,19 @@ task Compile -depends Init {
 }
 
 task Test -depends Compile {
-  & $src_dir\packages\NUnit.Runners.2.6.3\tools\nunit-console.exe "$buildartifacts_dir\NPetrovich.Tests.dll" /xml:"$buildartifacts_dir\TestResult.xml"
+  & $src_dir\packages\NUnit.Runners.2.6.3\tools\nunit-console.exe "$buildartifacts_dir\NPetrovich.Tests.dll" `
+       /xml:"$buildartifacts_dir\TestResult.xml"
 }
 
 task Merge {
-
+  & $src_dir\packages\ILMerge.2.13.0307\ILMerge.exe "$buildartifacts_dir\NPetrovich.dll" `
+        "$buildartifacts_dir\YamlDotNet.Core.dll" `
+        "$buildartifacts_dir\YamlDotNet.RepresentationModel.dll" `
+        /out:"$buildartifacts_dir\NPentrovich.Release.dll" `
+        /t:library
+  if ($lastExitCode -ne 0) {
+        throw "Error: Failed to merge assemblies!"
+  }
 }
 
 task Release -depends Test, Merge {
