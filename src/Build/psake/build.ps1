@@ -43,5 +43,5 @@ task Merge {
 }
 
 task Release -depends Test, Merge {
-
+  Copy-Item "$build_dir\rules.yml" "$release_dir\rules.yml"
 }
