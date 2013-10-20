@@ -1,13 +1,13 @@
 properties {
   $base_dir  = resolve-path ..\..\..
   $src_dir = "$base_dir\src"
-  $project_file = "$src_dir\NPetrovich\NPetrovich.csproj"
+  $project_file = "$src_dir\NPetrovich.sln"
   $buildartifacts_dir = "$base_dir\build"
   $release_dir = "$base_dir\bin"
   $tools_dir = "$base_dir\tools"
 }
 
-task default -depends Compile
+task default -depends Release
 
 task Clean {
   remove-item -force -recurse $buildartifacts_dir -ErrorAction SilentlyContinue
@@ -23,6 +23,18 @@ task Init -depends Clean, Restore {
 
 task Compile -depends Init {
   exec { msbuild "$project_file" /p:OutDir="$buildartifacts_dir" }
+}
+
+task Test -depends Compile {
+  & $src_dir\packages\NUnit.Runners.2.6.3\tools\nunit-console.exe "$buildartifacts_dir\NPetrovich.Tests.dll" /xml:"$buildartifacts_dir\TestResult.xml"
+}
+
+task Merge {
+
+}
+
+task Release -depends Test, Merge {
+
 }
 
 # task Test -depends Compile {
