@@ -13,6 +13,7 @@ x64/
 build/
 !/src/build/
 [Bb]in/
+!/bin/
 [Oo]bj/
 
 # ReSharper is a .NET coding add-in
