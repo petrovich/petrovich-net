@@ -30,15 +30,17 @@ namespace NPetrovich
             Guard.IfArgumentNullOrWhitespace(LastName, "LastName", "Last name was not provided");
             Guard.IfArgumentNullOrWhitespace(MiddleName, "MiddleName", "Middle name was not provided");
 
+            var inflected = new Petrovich();
+
             if (AutoDetectGender) DetectGender();
 
             var inflection = new CaseInflection(provider, Gender);
 
-            FirstName = inflection.InflectFirstNameTo(FirstName, @case);
-            LastName = inflection.InflectLastNameTo(LastName, @case);
-            MiddleName = inflection.InflectMiddleNameTo(MiddleName, @case);
+            inflected.FirstName = inflection.InflectFirstNameTo(FirstName, @case);
+            inflected.LastName = inflection.InflectLastNameTo(LastName, @case);
+            inflected.MiddleName = inflection.InflectMiddleNameTo(MiddleName, @case);
 
-            return this;
+            return inflected;
         }
 
         public virtual string InflectFirstNameTo(Case @case)
