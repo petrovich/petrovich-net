@@ -30,16 +30,22 @@ var petrovich = new Petrovich()
 	};
 
 // Inflect all properties
-petrovich.InflectTo(Case.Dative);
+var inflected = petrovich.InflectTo(Case.Dative);
 
-System.Console.WriteLine(petrovich.FirstName); // Ивану
-System.Console.WriteLine(petrovich.LastName); // Иванову
-System.Console.WriteLine(petrovich.MiddleName); // Ивановичу
+System.Console.WriteLine(inflected.FirstName); // Ивану
+System.Console.WriteLine(inflected.LastName); // Иванову
+System.Console.WriteLine(inflected.MiddleName); // Ивановичу
+
+inflected = petrovich.InflectTo(Case.Instrumental);
+
+System.Console.WriteLine(inflected.FirstName); // Иваном
+System.Console.WriteLine(inflected.LastName); // Ивановым
+System.Console.WriteLine(inflected.MiddleName); // Ивановичем
 
 // Inflect each property
-System.Console.WriteLine(petrovich.InflectFirstNameTo(Case.Genitive)) // Ивана
-System.Console.WriteLine(petrovich.InflectLastNameTo(Case.Genitive)) // Иванова
-System.Console.WriteLine(petrovich.InflectMiddleNameTo(Case.Genitive)) // Ивановича
+System.Console.WriteLine(petrovich.InflectFirstNameTo(Case.Genitive)); // Ивана
+System.Console.WriteLine(petrovich.InflectLastNameTo(Case.Genitive)); // Иванова
+System.Console.WriteLine(petrovich.InflectMiddleNameTo(Case.Genitive)); // Ивановича
 ```
 
 You can use automatic gender detection based on middle name:
