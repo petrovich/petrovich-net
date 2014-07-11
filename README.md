@@ -14,7 +14,7 @@ PS. Nuget package coming soon
 
 ## Building
 
-Run `build.ps1` script with Powershell to build solution. You can find output binaries in the `bin` directory.
+Run `psake.ps1` script with Powershell to build solution. You can find output binaries in the `bin` directory.
 
 ## Usage
 
@@ -94,4 +94,3 @@ You can also support project by reporting issues or suggesting new features and 
 * Add documentation
 * Add comments to the code
 * Nuget package
-* Add msbuild build scripts
