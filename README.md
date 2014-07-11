@@ -7,12 +7,18 @@ NPetrovich is C#/.NET implementation of [Petrovich](https://github.com/rocsci/pe
 
 ## Installation
 
+## NuGet
+
+```
+PM> Install-Package NPetrovich
+```
+
+#### Manual
+
 Just reference NPetrovich dll to your project.
 You also need to copy `rules.yml` to folder with NPetrovich dll.
 
-PS. Nuget package coming soon
-
-## Building
+#### Building
 
 Run `psake.ps1` script with Powershell to build solution. You can find output binaries in the `bin` directory.
 
