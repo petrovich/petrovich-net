@@ -93,4 +93,3 @@ You can also support project by reporting issues or suggesting new features and 
 
 * Add documentation
 * Add comments to the code
-* Nuget package
