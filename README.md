@@ -5,6 +5,8 @@ NPetrovich is library which inflects Russian names to given grammatical case. It
 
 NPetrovich is C#/.NET implementation of [Petrovich](https://github.com/rocsci/petrovich) ruby gem.
 
+[![Build status](https://ci.appveyor.com/api/projects/status/ieqcivsb3cxghx2a)](https://ci.appveyor.com/project/VitaliFokin/petrovich-net)
+
 ## Installation
 
 NuGet
