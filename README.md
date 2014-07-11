@@ -18,7 +18,6 @@ PM> Install-Package NPetrovich
 Manual
 
 Just reference NPetrovich dll to your project.
-You also need to copy `rules.yml` to folder with NPetrovich dll.
 
 ## Building
 
@@ -83,7 +82,7 @@ System.Console.WriteLine(gender); // Male
 You can use your own rules loeder which implements IRulesLoader interface:
 
 ```csharp
-IRulesLoader customLoader = new CustomRulesLoader("CustomRulesFile.CustomExtension");
+IRulesLoader customLoader = new CustomRulesLoader();
 var petrovich = new Petrovich(customLoader);
 ```
 
