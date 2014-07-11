@@ -4,9 +4,10 @@ properties {
   $build_dir = "$base_dir\build"
   $release_dir = "$base_dir\bin"
   $tools_dir = "$base_dir\tools"
+  $nuspec_dir = "$base_dir\nuget"
 }
 
-task default -depends Release
+task default -depends Pack
 
 task Clean {
   remove-item -force -recurse $build_dir -ErrorAction SilentlyContinue
@@ -40,6 +41,11 @@ task Merge {
   if ($lastExitCode -ne 0) {
         throw "Error: Failed to merge assemblies!"
   }
+}
+
+task Pack -depends Release {
+  & $tools_dir\nuget\nuget.exe pack "$nuspec_dir\NPetrovich.dll.nuspec" `
+      -OutputDirectory "$release_dir"
 }
 
 task Release -depends Test, Merge {
