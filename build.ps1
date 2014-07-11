@@ -32,7 +32,7 @@ task Test -depends Compile {
        /xml:"$build_dir\TestResult.xml"
 }
 
-task Merge {
+task Merge -depends Compile {
   & $tools_dir\ILMerge\ILMerge.exe "$build_dir\NPetrovich.dll" `
         "$build_dir\YamlDotNet.Core.dll" `
         "$build_dir\YamlDotNet.RepresentationModel.dll" `
@@ -43,11 +43,10 @@ task Merge {
   }
 }
 
-task Pack -depends Release {
+task Pack -depends Merge, Test {
   & $tools_dir\nuget\nuget.exe pack "$nuspec_dir\NPetrovich.dll.nuspec" `
       -OutputDirectory "$release_dir"
 }
 
-task Release -depends Test, Merge {
-  Copy-Item "$build_dir\rules.yml" "$release_dir\rules.yml"
+task Release -depends Pack {
 }

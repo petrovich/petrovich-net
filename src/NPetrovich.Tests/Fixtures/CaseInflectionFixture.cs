@@ -1,6 +1,6 @@
 ﻿using NPetrovich.Inflection;
 using NPetrovich.Rules;
-using NPetrovich.Rules.Loader.Yaml;
+using NPetrovich.Rules.Loader;
 using NPetrovich.Tests.TestDataProviders;
 using NUnit.Framework;
 using System;
@@ -18,7 +18,7 @@ namespace NPetrovich.Tests.Fixtures
         [TestFixtureSetUp]
         public void FixtureSetUp()
         {
-            var loader = new YamlRulesLoader("rules.yml");
+            var loader = new EmbeddedResourceLoader();
             provider = new RulesProvider(loader);
         }
 

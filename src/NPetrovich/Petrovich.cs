@@ -1,7 +1,6 @@
 ﻿using NPetrovich.Inflection;
 using NPetrovich.Rules;
 using NPetrovich.Rules.Loader;
-using NPetrovich.Rules.Loader.Yaml;
 using NPetrovich.Utils;
 
 namespace NPetrovich
@@ -13,7 +12,7 @@ namespace NPetrovich
 
         public Petrovich(IRulesLoader rulesLoader = null)
         {
-            loader = rulesLoader ?? new YamlRulesLoader("rules.yml");
+            loader = rulesLoader ?? new EmbeddedResourceLoader();
             provider = new RulesProvider(loader);
         }
 

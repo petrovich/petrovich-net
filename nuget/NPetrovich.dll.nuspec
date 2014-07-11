@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>NPetrovich</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <authors>VitaliFokin</authors>
     <owners>Vitali Fokin</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
@@ -14,6 +14,6 @@
   </metadata>
   <files>
     <file src="..\bin\NPetrovich.dll" target="lib\net40\NPetrovich.dll" />
-    <file src="..\src\rules\rules.yml" target="lib\net40\rules.yml" /> 
+    <file src="..\bin\NPetrovich.pdb" target="lib\net40\NPetrovich.pdb" />
   </files>
 </package>
