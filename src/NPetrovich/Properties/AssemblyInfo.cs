@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("NPetrovich")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("NPetrovich is library which inflects Russian names to given grammatical case. It supports first names, last names and middle names inflections.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Petrovich")]
 [assembly: AssemblyProduct("NPetrovich")]
-[assembly: AssemblyCopyright("Copyright © Vitali Fokin 2013")]
+[assembly: AssemblyCopyright("Copyright © Vitali Fokin 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
