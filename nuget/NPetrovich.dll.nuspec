@@ -2,8 +2,9 @@
 <package >
   <metadata>
     <id>NPetrovich</id>
+    <title>NPetrovich</title>
     <version>1.0.1</version>
-    <authors>VitaliFokin</authors>
+    <authors>Vitali Fokin</authors>
     <owners>Vitali Fokin</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/petrovich/petrovich-net</projectUrl>
