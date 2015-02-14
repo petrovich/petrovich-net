@@ -1,3 +1,5 @@
+#NPetrovich is looking for new maintainer. Please, create an issue if you want to become a maintainer.
+
 ![Petrovich](petrovich.png) ﻿NPetrovich
 ==========
 
