@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using NPetrovich.Rules;
 using NPetrovich.Rules.Data;
+using NPetrovich.Rules.Loader;
 
 namespace NPetrovich.Inflection
 {
-    internal class CaseInflection
+    public class CaseInflection
     {
         private readonly RulesProvider provider;
         private readonly Gender gender;
 
-        public CaseInflection(RulesProvider provider, Gender gender)
+        public CaseInflection(Gender gender, IRulesLoader rulesLoader = null)
+            : this(new RulesProvider((rulesLoader ?? new EmbeddedResourceLoader())), gender)
+        {
+
+        }
+
+        internal CaseInflection(RulesProvider provider, Gender gender)
         {
             this.provider = provider;
             this.gender = gender;
