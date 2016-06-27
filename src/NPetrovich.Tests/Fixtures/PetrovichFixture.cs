@@ -9,6 +9,8 @@ namespace NPetrovich.Tests.Fixtures
         [Test]
         [TestCase("Петрович", Gender.Male)]
         [TestCase("Петровна", Gender.Female)]
+        [TestCase("Петрович Оглы", Gender.Male)]
+        [TestCase("Петровна Кызы", Gender.Female)]
         public void Shoud_detect_gender_if_auto_detection_is_set(string middleName, Gender expected)
         {
             var petrovich = new Petrovich {AutoDetectGender = true, MiddleName = middleName};

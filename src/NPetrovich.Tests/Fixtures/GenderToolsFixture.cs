@@ -10,6 +10,8 @@ namespace NPetrovich.Tests.Fixtures
         [Test]
         [TestCase("Иванович", Gender.Male)]
         [TestCase("Ивановна", Gender.Female)]
+        [TestCase("Иванович ОГЛЫ", Gender.Male)]
+        [TestCase("Ивановна-кызы", Gender.Female)]
         [TestCase("Абракадабра", Gender.Androgynous)]
         public void Should_detect_gender_using_extension_method(string middleName, Gender expectedGender)
         {

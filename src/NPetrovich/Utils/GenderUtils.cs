@@ -8,6 +8,12 @@ namespace NPetrovich.Utils
         {
             Guard.IfArgumentNullOrWhitespace(middleName, "middleName", "You must specify middle name to detect gender");
 
+            if (middleName.EndsWith("оглы", true, CultureInfo.InvariantCulture))
+                return Gender.Male;
+
+            if (middleName.EndsWith("кызы", true, CultureInfo.InvariantCulture))
+                return Gender.Female;
+
             if (middleName.EndsWith("ич", true, CultureInfo.InvariantCulture))
                 return Gender.Male;
 

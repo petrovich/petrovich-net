@@ -68,7 +68,9 @@
     </Content>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NPetrovich\NPetrovich.csproj">
       <Project>{062D7B36-6921-495E-AF54-2CC37473545C}</Project>
