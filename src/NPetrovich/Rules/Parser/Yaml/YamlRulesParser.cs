@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using YamlDotNet.RepresentationModel.Serialization;
+using YamlDotNet.Serialization;
 
 namespace NPetrovich.Rules.Parser.Yaml
 {
