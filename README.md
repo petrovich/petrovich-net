@@ -79,7 +79,7 @@ System.Console.WriteLine(gender); // Male
 
 ### Advanced usage
 
-You can use your own rules loeder which implements IRulesLoader interface:
+You can use your own rules loader which implements IRulesLoader interface:
 
 ```csharp
 IRulesLoader customLoader = new CustomRulesLoader();
