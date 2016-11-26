@@ -1,14 +1,17 @@
 ﻿using System.Collections.Generic;
-using YamlDotNet.RepresentationModel.Serialization;
+using Newtonsoft.Json;
+using YamlDotNet.Serialization;
 
 namespace NPetrovich.Rules.Data
 {
     public class RuleSet
     {
-        [YamlAlias("exceptions")]
+        [YamlMember(Alias = "exceptions")]
+        [JsonProperty(PropertyName = "exceptions")]
         public List<Rule> Exceptions { get; set; }
 
-        [YamlAlias("suffixes")]
+        [YamlMember(Alias = "suffixes")]
+        [JsonProperty(PropertyName = "suffixes")]
         public List<Rule> Suffixes { get; set; }
     }
 }

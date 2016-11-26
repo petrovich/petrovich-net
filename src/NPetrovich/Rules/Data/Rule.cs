@@ -1,20 +1,25 @@
 ﻿using System.Collections.Generic;
-using YamlDotNet.RepresentationModel.Serialization;
+using Newtonsoft.Json;
+using YamlDotNet.Serialization;
 
 namespace NPetrovich.Rules.Data
 {
     public class Rule
     {
-        [YamlAlias("gender")]
+        [YamlMember(Alias = "gender")]
+        [JsonProperty(PropertyName = "gender")]
         public string Gender { get; set; }
 
-        [YamlAlias("test")]
+        [YamlMember(Alias = "test")]
+        [JsonProperty(PropertyName = "test")]
         public List<string> TestSuffixes { get; set; }
 
-        [YamlAlias("mods")]
+        [YamlMember(Alias = "mods")]
+        [JsonProperty(PropertyName = "mods")]
         public List<string> ModSuffixes { get; set; }
 
-        [YamlAlias("tags")]
+        [YamlMember(Alias = "tags")]
+        [JsonProperty(PropertyName = "tags")]
         public List<string> Tags { get; set; }
     }
 }
