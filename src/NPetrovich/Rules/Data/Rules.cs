@@ -2,15 +2,24 @@
 
 namespace NPetrovich.Rules.Data
 {
-    public class Rules
+    public class Rules<TItem>
     {
         [YamlAlias("lastname")]
-        public RuleSet LastName { get; set; }
+        public TItem LastName { get; set; }
 
         [YamlAlias("firstname")]
-        public RuleSet FirstName { get; set; }
+        public TItem FirstName { get; set; }
 
         [YamlAlias("middlename")]
-        public RuleSet MiddleName { get; set; }
+        public TItem MiddleName { get; set; }
+    }
+
+
+    public class Rules: Rules<RuleSet>
+    {
+    }
+
+    public class GenderRules : Rules<GenderRuleSet>
+    {
     }
 }

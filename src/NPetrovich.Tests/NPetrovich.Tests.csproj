@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fixtures\CaseInflectionFixtureStandalone.cs" />
+    <Compile Include="Fixtures\GenderDeterminatorFixture.cs" />
     <Compile Include="Fixtures\PetrovichFixture.cs" />
     <Compile Include="Fixtures\RulesFixture.cs" />
     <Compile Include="Fixtures\RulesProviderFixture.cs" />

@@ -1,19 +1,22 @@
-﻿using NPetrovich.Inflection;
+﻿using NPetrovich.GenderDetermination;
+using NPetrovich.Inflection;
 using NPetrovich.Rules;
 using NPetrovich.Rules.Loader;
 using NPetrovich.Utils;
 
 namespace NPetrovich
 {
-    public class Petrovich
+    public class Petrovich : IFio
     {
         private readonly IRulesLoader loader;
         private readonly RulesProvider provider;
+        private GenderDeterminator _genderDeterminator;
 
         public Petrovich(IRulesLoader rulesLoader = null)
         {
             loader = rulesLoader ?? new EmbeddedResourceLoader();
             provider = new RulesProvider(loader);
+            _genderDeterminator = rulesLoader == null ? GenderUtils.Determinator : new GenderDeterminator(provider);
         }
 
         public virtual bool AutoDetectGender { get; set; }
@@ -77,7 +80,7 @@ namespace NPetrovich
         protected virtual void DetectGender()
         {
             if (Gender == Gender.Androgynous)
-                Gender = GenderUtils.Detect(MiddleName);
+                Gender = _genderDeterminator.Determinate(this);
         }
     }
 }
