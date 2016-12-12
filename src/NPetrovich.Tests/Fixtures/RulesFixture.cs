@@ -13,5 +13,13 @@ namespace NPetrovich.Tests.Fixtures
 
             Assert.DoesNotThrow(() => loader.Load());
         }
+
+        [Test]
+        public void GenderRules_yml_should_be_valid_yaml_file()
+        {
+            EmbeddedResourceLoader loader = new EmbeddedResourceLoader();
+
+            Assert.DoesNotThrow(() => loader.LoadGender());
+        }
     }
 }

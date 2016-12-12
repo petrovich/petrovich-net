@@ -11,4 +11,14 @@ namespace NPetrovich.Rules.Data
         [YamlAlias("suffixes")]
         public List<Rule> Suffixes { get; set; }
     }
+
+    public class GenderRuleSet
+    {
+        [YamlAlias("exceptions")]
+        public GenderRule Exceptions { get; set; }
+
+        [YamlAlias("suffixes")]
+        public GenderRule Suffixes { get; set; }
+    }
+
 }
