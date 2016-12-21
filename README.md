@@ -55,7 +55,7 @@ System.Console.WriteLine(petrovich.InflectLastNameTo(Case.Genitive)); // Ива�
 System.Console.WriteLine(petrovich.InflectMiddleNameTo(Case.Genitive)); // Ивановича
 ```
 
-You can use automatic gender detection based on middle name:
+You can use automatic gender detection based on middle name or first and last names, if the middle name not determinates gender:
 
 ```csharp
 var petrovich = new Petrovich()
