@@ -11,10 +11,11 @@ namespace NPetrovich
         private readonly IRulesLoader loader;
         private readonly RulesProvider provider;
         private GenderDeterminator _genderDeterminator;
+        private static readonly EmbeddedResourceLoader EmbeddedResourceLoader = new EmbeddedResourceLoader();
 
         public Petrovich(IRulesLoader rulesLoader = null)
         {
-            loader = rulesLoader ?? new EmbeddedResourceLoader();
+            loader = rulesLoader ?? EmbeddedResourceLoader;
             provider = new RulesProvider(loader);
             _genderDeterminator = rulesLoader == null ? GenderUtils.Determinator : new GenderDeterminator(provider);
         }
