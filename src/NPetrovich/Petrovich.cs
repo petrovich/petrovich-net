@@ -10,7 +10,7 @@ namespace NPetrovich
     {
         private readonly IRulesLoader loader;
         private readonly RulesProvider provider;
-        private GenderDeterminator _genderDeterminator;
+        private readonly GenderDeterminator _genderDeterminator;
         private static readonly RulesProvider EmbeddedResourceLoader = new RulesProvider(new EmbeddedResourceLoader());
 
         public Petrovich(IRulesLoader rulesLoader = null)

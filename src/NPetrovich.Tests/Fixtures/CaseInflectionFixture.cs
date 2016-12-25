@@ -3,10 +3,6 @@ using NPetrovich.Rules;
 using NPetrovich.Rules.Loader;
 using NPetrovich.Tests.TestDataProviders;
 using NUnit.Framework;
-using System;
-using System.Collections;
-using System.IO;
-using System.Linq;
 
 namespace NPetrovich.Tests.Fixtures
 {
