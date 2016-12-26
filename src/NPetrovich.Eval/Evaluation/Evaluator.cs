@@ -36,7 +36,7 @@ namespace NPetrovich.Eval.Evaluation
             }
             var rate = (double) totalGood/ caseData.Length;
             Debug.WriteLine("");
-            Debug.WriteLine($"Проверен {parameters.Description} за {timer} (на 1000 {timer.Duration.TotalSeconds/(caseData.Length*1000)} сек.) точность '{rate}'");
+            Debug.WriteLine($"Проверен '{parameters.Description}' за {timer} (на 1000 {timer.Duration.TotalSeconds * 1000/ (caseData.Length):R} сек.) точность '{rate}'");
             File.WriteAllLines(parameters.Description+".errors.txt", errors.Select(x=>x.ToString()));
         }
 

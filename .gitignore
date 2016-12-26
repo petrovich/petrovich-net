@@ -41,3 +41,5 @@ $RECYCLE.BIN/
 # Mac crap
 .DS_Store
 src/.vs/*
+*.vspx
+*.psess

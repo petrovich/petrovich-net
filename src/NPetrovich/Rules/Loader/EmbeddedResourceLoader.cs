@@ -1,9 +1,7 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Reflection;
 using NPetrovich.Rules.Data;
 using NPetrovich.Rules.Parser.Yaml;
-using YamlDotNet.RepresentationModel.Serialization;
 
 namespace NPetrovich.Rules.Loader
 {
