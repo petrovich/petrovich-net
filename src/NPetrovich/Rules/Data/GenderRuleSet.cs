@@ -1,17 +1,21 @@
 ﻿using System.Collections.Generic;
-using YamlDotNet.RepresentationModel.Serialization;
+using Newtonsoft.Json;
+using YamlDotNet.Serialization;
 
 namespace NPetrovich.Rules.Data
 {
     public class GenderRule
     {
-        [YamlAlias("androgynous")]
+        [YamlMember(Alias = "androgynous")]
+        [JsonProperty(PropertyName = "androgynous")]
         public List<string> Androgynous { get; set; }
 
-        [YamlAlias("female")]
+        [YamlMember(Alias = "female")]
+        [JsonProperty(PropertyName = "female")]
         public List<string> Female { get; set; }
 
-        [YamlAlias("male")]
+        [YamlMember(Alias = "male")]
+        [JsonProperty(PropertyName = "male")]
         public List<string> Male { get; set; }
 
         public List<string> this[Gender gender]

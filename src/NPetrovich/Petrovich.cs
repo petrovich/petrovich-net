@@ -57,7 +57,7 @@ namespace NPetrovich
 
         public virtual string InflectLastNameTo(Case @case)
         {
-            Guard.IfArgumentNullOrWhitespace(LastName, "FirstName", "Last name was not provided");
+            Guard.IfArgumentNullOrWhitespace(LastName, "LastName", "Last name was not provided");
 
             if (AutoDetectGender) DetectGender();
 
@@ -66,7 +66,7 @@ namespace NPetrovich
 
         public virtual string InflectMiddleNameTo(Case @case)
         {
-            Guard.IfArgumentNullOrWhitespace(MiddleName, "FirstName", "Middle name was not provided");
+            Guard.IfArgumentNullOrWhitespace(MiddleName, "MiddleName", "Middle name was not provided");
 
             if (AutoDetectGender) DetectGender();
 

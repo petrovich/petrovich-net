@@ -11,7 +11,7 @@ namespace NPetrovich.Tests.Fixtures
         {
             EmbeddedResourceLoader loader = new EmbeddedResourceLoader();
 
-            Assert.DoesNotThrow(() => loader.Load());
+            Assert.DoesNotThrow(() => loader.LoadYaml());
         }
 
         [Test]
@@ -19,7 +19,23 @@ namespace NPetrovich.Tests.Fixtures
         {
             EmbeddedResourceLoader loader = new EmbeddedResourceLoader();
 
-            Assert.DoesNotThrow(() => loader.LoadGender());
+            Assert.DoesNotThrow(() => loader.LoadGenderYaml());
+        }
+
+        [Test]
+        public void Rules_json_should_be_valid_json_file()
+        {
+            EmbeddedResourceLoader loader = new EmbeddedResourceLoader();
+
+            Assert.DoesNotThrow(() => loader.LoadJson());
+        }
+
+        [Test]
+        public void GenderRules_json_should_be_valid_json_file()
+        {
+            EmbeddedResourceLoader loader = new EmbeddedResourceLoader();
+
+            Assert.DoesNotThrow(() => loader.LoadGenderJson());
         }
     }
 }
