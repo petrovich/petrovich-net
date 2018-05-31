@@ -3,18 +3,22 @@
   <metadata>
     <id>NPetrovich</id>
     <title>NPetrovich</title>
-    <version>1.0.1</version>
-    <authors>Vitali Fokin</authors>
-    <owners>Vitali Fokin</owners>
+    <version>1.2.0</version>
+    <authors>Vitali Fokin, Ivanov Andrey</authors>
+    <owners>Vitali Fokin, Ivanov Andrey</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/petrovich/petrovich-net</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>NPetrovich is library which inflects Russian names to given grammatical case. It supports first names, last names and middle names inflections.</description>
-    <copyright>Copyright 2014</copyright>
+    <copyright>Copyright 2014-2018</copyright>
     <tags>Petrovich Case Inflection Russian Names</tags>
+	<dependencies>
+	  <dependency id="Newtonsoft.Json" version="9.0.1" />
+	  <dependency id="YamlDotNet" version="4.0.0" />
+	</dependencies>
   </metadata>
   <files>
-    <file src="..\bin\NPetrovich.dll" target="lib\net40\NPetrovich.dll" />
-    <file src="..\bin\NPetrovich.pdb" target="lib\net40\NPetrovich.pdb" />
+    <file src="..\build\NPetrovich.dll" target="lib\net40\NPetrovich.dll" />
+    <file src="..\build\NPetrovich.pdb" target="lib\net40\NPetrovich.pdb" />
   </files>
 </package>

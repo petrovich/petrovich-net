@@ -24,7 +24,7 @@ task Init -depends Clean, Restore {
 }
 
 task Compile -depends Init {
-  exec { msbuild "$src_dir\NPetrovich.sln" /p:OutDir="$build_dir" }
+  & "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\msbuild" "$src_dir\NPetrovich.sln" /p:OutDir="$build_dir" 
 }
 
 task Test -depends Compile {
@@ -43,7 +43,7 @@ task Merge -depends Compile {
   }
 }
 
-task Pack -depends Merge, Test {
+task Pack -depends Compile, Test {
   & $tools_dir\nuget\nuget.exe pack "$nuspec_dir\NPetrovich.dll.nuspec" `
       -OutputDirectory "$release_dir"
 }
