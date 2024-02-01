@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPetrovich.Eval", "NPetrovi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPetrovich.Tests", "NPetrovich.Tests\NPetrovich.Tests.csproj", "{C3B84DDA-5D07-48F3-BFF6-65BE46BA1DC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPetrovich.Extensions.DependencyInjection", "NPetrovich.Extensions.DependencyInjection\NPetrovich.Extensions.DependencyInjection.csproj", "{1FF3E1EC-3EFD-47D2-81CF-AE3790DFBFA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{C3B84DDA-5D07-48F3-BFF6-65BE46BA1DC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3B84DDA-5D07-48F3-BFF6-65BE46BA1DC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3B84DDA-5D07-48F3-BFF6-65BE46BA1DC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FF3E1EC-3EFD-47D2-81CF-AE3790DFBFA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FF3E1EC-3EFD-47D2-81CF-AE3790DFBFA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FF3E1EC-3EFD-47D2-81CF-AE3790DFBFA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FF3E1EC-3EFD-47D2-81CF-AE3790DFBFA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

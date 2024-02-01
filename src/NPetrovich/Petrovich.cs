@@ -6,7 +6,7 @@ using NPetrovich.Utils;
 
 namespace NPetrovich
 {
-    public class Petrovich : IFio
+    public class Petrovich : IPetrovich
     {
         private readonly RulesProvider _provider;
         private readonly GenderDeterminator _genderDeterminator;
