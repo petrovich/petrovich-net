@@ -1,10 +1,11 @@
 ﻿using System.IO;
+using System.Threading.Tasks;
 
 namespace NPetrovich.Rules.Parser
 {
     public interface IRulesParser
     {
-        Data.Rules Parse(StreamReader data);
-        Data.GenderRules ParseGender(StreamReader data);
+        Task<Data.Rules> ParseAsync(Stream data);
+        Task<Data.GenderRules> ParseGenderAsync(Stream data);
     }
 }

@@ -1,12 +1,10 @@
-﻿using System;
-using NPetrovich.Eval.Data;
+﻿using NPetrovich.Eval.Data;
 
-namespace NPetrovich.Eval.Evaluation
+namespace NPetrovich.Eval.Evaluation;
+
+public interface IEvaluateParameters
 {
-    public interface IEvaluateParameters
-    {
-        string Description { get; }
-        Action<Petrovich, string> PetrovichAccessor { get; }
-        Func<ICaseSource, IEvalCase[]> CaseAccessor { get; }
-    }
+    string Description { get; }
+    Action<Petrovich, string> PetrovichAccessor { get; }
+    Func<ICaseSource, IEvalCase[]> CaseAccessor { get; }
 }

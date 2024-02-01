@@ -1,28 +1,23 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
-using YamlDotNet.Serialization;
+using System.Text.Json.Serialization;
 
 namespace NPetrovich.Rules.Data
 {
     public class RuleSet
     {
-        [YamlMember(Alias = "exceptions")]
-        [JsonProperty(PropertyName = "exceptions")]
+        [JsonPropertyName("exceptions")]
         public List<Rule> Exceptions { get; set; }
         
-        [YamlMember(Alias = "suffixes")]
-        [JsonProperty(PropertyName = "suffixes")]
+        [JsonPropertyName("suffixes")]
         public List<Rule> Suffixes { get; set; }
     }
 
     public class GenderRuleSet
     {
-        [YamlMember(Alias = "exceptions")]
-        [JsonProperty(PropertyName = "exceptions")]
+        [JsonPropertyName("exceptions")]
         public GenderRule Exceptions { get; set; }
 
-        [YamlMember(Alias = "suffixes")]
-        [JsonProperty(PropertyName = "suffixes")]
+        [JsonPropertyName("suffixes")]
         public GenderRule Suffixes { get; set; }
     }
 

@@ -1,21 +1,17 @@
-﻿using System.IO;
-using System.Linq;
-using RecycleBin.TextTables;
+﻿using System.Text;
+using TinyCsvParser;
 
-namespace NPetrovich.Eval.Data
+namespace NPetrovich.Eval.Data;
+
+public static class CaseLoader
 {
-    public static class CaseLoader
+    public static IEvalCase[] LoadCase(Stream stream)
     {
-        public static IEvalCase[] LoadCase(TextReader textReader)
-        {
-            using (var table = new FastCsvReader(textReader, new FastCsvReaderSettings()
-            {
-                FieldDelimiter = '\t'
-            }))
-            {
-                table.HandleHeaderRow();
-                return table.ReadToEnd<EvalCase>().ToArray<IEvalCase>();
-            }
-        }
+        var csvParserOptions = new CsvParserOptions(true, '\t');
+        var csvMapper = new CsvCaseMapping();
+        var csvParser = new CsvParser<EvalCase>(csvParserOptions, csvMapper);
+
+        return csvParser
+            .ReadFromStream(stream, Encoding.UTF8).Select(r => r.Result).ToArray<IEvalCase>();
     }
 }

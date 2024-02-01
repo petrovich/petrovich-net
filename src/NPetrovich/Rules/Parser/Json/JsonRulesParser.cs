@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.IO;
-using System.Linq;
-using System.Text;
-using Newtonsoft.Json;
-using NPetrovich.Rules.Data;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace NPetrovich.Rules.Parser.Json
 {
     public class JsonRulesParser : IRulesParser
     {
-        public Data.Rules Parse(StreamReader data)
+        public async Task<Data.Rules> ParseAsync(Stream data)
         {
-            return JsonConvert.DeserializeObject<Data.Rules>(data.ReadToEnd());
+            return await JsonSerializer.DeserializeAsync<Data.Rules>(data);
         }
 
-        public Data.GenderRules ParseGender(StreamReader data)
+        public async Task<Data.GenderRules> ParseGenderAsync(Stream data)
         {
-            return JsonConvert.DeserializeObject<GenderContainer>(data.ReadToEnd()).Gender;
+            return (await JsonSerializer.DeserializeAsync<GenderContainer>(data))?.Gender;
         }
     }
 }

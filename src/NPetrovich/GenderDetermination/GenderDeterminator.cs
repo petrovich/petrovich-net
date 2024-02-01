@@ -81,22 +81,22 @@ namespace NPetrovich.GenderDetermination
 
         private class RuleSetDeterminator
         {
-            private readonly RuleMatcher _exceptionsMathcer;
-            private readonly RuleMatcher _suffixMathcer;
+            private readonly RuleMatcher _exceptionsMatcher;
+            private readonly RuleMatcher _suffixMatcher;
 
             public RuleSetDeterminator(GenderRuleSet ruleSet)
             {
-                _exceptionsMathcer = new RuleMatcher(ruleSet?.Exceptions, true);
-                _suffixMathcer = new RuleMatcher(ruleSet?.Suffixes, false);
+                _exceptionsMatcher = new RuleMatcher(ruleSet?.Exceptions, true);
+                _suffixMatcher = new RuleMatcher(ruleSet?.Suffixes, false);
             }
 
-            public Gender Determinate(IEnumerable<string> chunks)
+            public Gender Determinate(List<string> chunks)
             {
                 if (!chunks.Any())
                     return Gender.Androgynous;
-                var value = chunks.Select(_exceptionsMathcer.IsMatched).LastOrDefault(x => x.HasValue);
+                var value = chunks.Select(_exceptionsMatcher.IsMatched).LastOrDefault(x => x.HasValue);
                 if (value.HasValue) return value.Value;
-                value = chunks.Select(_suffixMathcer.IsMatched).LastOrDefault(x => x.HasValue);
+                value = chunks.Select(_suffixMatcher.IsMatched).LastOrDefault(x => x.HasValue);
                 return value ?? Gender.Androgynous;
             }
         }

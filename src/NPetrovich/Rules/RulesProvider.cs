@@ -1,25 +1,25 @@
 ﻿using NPetrovich.Rules.Loader;
 using System;
+using System.Runtime.CompilerServices;
 using System.Threading;
 
+[assembly:InternalsVisibleTo("NPetrovich.Tests")]
 namespace NPetrovich.Rules
 {
+    
     internal class RulesProvider
     {
-        private readonly Lazy<Data.Rules> rules;
-        private readonly Lazy<Data.GenderRules> genderRules;
-        private readonly IRulesLoader loader;
+        private readonly Lazy<Data.Rules> _rules;
+        private readonly Lazy<Data.GenderRules> _genderRules;
 
-        public Data.Rules Rules { get { return rules.Value; } }
+        public Data.Rules Rules => _rules.Value;
 
-        public Data.GenderRules GenderRules { get { return genderRules.Value; } }
+        public Data.GenderRules GenderRules => _genderRules.Value;
 
         public RulesProvider(IRulesLoader loader)
         {
-            this.loader = loader;
-
-            rules = new Lazy<Data.Rules>(loader.Load, LazyThreadSafetyMode.ExecutionAndPublication);
-            genderRules = new Lazy<Data.GenderRules>(loader.LoadGender, LazyThreadSafetyMode.ExecutionAndPublication);
+            _rules = new Lazy<Data.Rules>(() => loader.LoadAsync().Result, LazyThreadSafetyMode.ExecutionAndPublication);
+            _genderRules = new Lazy<Data.GenderRules>(() => loader.LoadGenderAsync().Result, LazyThreadSafetyMode.ExecutionAndPublication);
         }
     }
 }

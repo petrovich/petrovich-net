@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 using NPetrovich.Rules.Data;
-using YamlDotNet.Serialization;
 
 namespace NPetrovich.Rules.Parser
 {
     class GenderContainer
     {
-        [YamlMember(Alias = "gender")]
-        [JsonProperty(PropertyName = "gender")]
+        [JsonPropertyName("gender")]
         public GenderRules Gender { get; set; }
     }
 }

@@ -1,20 +1,17 @@
-﻿using Newtonsoft.Json;
-using YamlDotNet.Serialization;
+﻿
+using System.Text.Json.Serialization;
 
 namespace NPetrovich.Rules.Data
 {
     public class Rules<TItem>
     {
-        [YamlMember(Alias = "lastname")]
-        [JsonProperty(PropertyName = "lastname")]
+        [JsonPropertyName("lastname")]
         public TItem LastName { get; set; }
         
-        [YamlMember(Alias = "firstname")]
-        [JsonProperty(PropertyName = "firstname")]
+        [JsonPropertyName("firstname")]
         public TItem FirstName { get; set; }
         
-        [YamlMember(Alias = "middlename")]
-        [JsonProperty(PropertyName = "middlename")]
+        [JsonPropertyName("middlename")]
         public TItem MiddleName { get; set; }
     }
 

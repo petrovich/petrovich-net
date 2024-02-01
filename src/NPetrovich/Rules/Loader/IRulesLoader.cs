@@ -1,11 +1,11 @@
-﻿
+﻿using System.Threading.Tasks;
 using NPetrovich.Rules.Data;
 
 namespace NPetrovich.Rules.Loader
 {
     public interface IRulesLoader
     {
-        Data.Rules Load();
-        GenderRules LoadGender();
+        Task<Data.Rules> LoadAsync();
+        Task<GenderRules> LoadGenderAsync();
     }
 }

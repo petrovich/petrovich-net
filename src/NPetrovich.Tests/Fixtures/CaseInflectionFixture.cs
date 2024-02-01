@@ -4,42 +4,41 @@ using NPetrovich.Rules.Loader;
 using NPetrovich.Tests.TestDataProviders;
 using NUnit.Framework;
 
-namespace NPetrovich.Tests.Fixtures
+namespace NPetrovich.Tests.Fixtures;
+
+[TestFixture]
+public class CaseInflectionFixture
 {
-    [TestFixture]
-    public class CaseInflectionFixture
+    private RulesProvider _provider;
+
+    [OneTimeSetUp]
+    public void FixtureSetUp()
     {
-        private RulesProvider provider;
+        var loader = new EmbeddedResourceLoader();
+        _provider = new RulesProvider(loader);
+    }
 
-        [TestFixtureSetUp]
-        public void FixtureSetUp()
-        {
-            var loader = new EmbeddedResourceLoader();
-            provider = new RulesProvider(loader);
-        }
+    [Test]
+    [TestCaseSource(typeof(InflectionTestCaseDataFactory), nameof(InflectionTestCaseDataFactory.FirstNamesInflectionData))]
+    public void Should_inflect_first_name_correctly(string firstName, Gender gender, Case @case, string expected)
+    {
+        var actual = new CaseInflection(_provider, gender).InflectFirstNameTo(firstName, @case);
+        Assert.That(actual, Is.EqualTo(expected), $"Gender: {gender}, Case: {@case}");
+    }
 
-        [Test]
-        [TestCaseSource(typeof(InflectionTestCaseDataFactory), "FirstNamesInflectionData")]
-        public void Should_inflect_first_name_correctly(string firstName, Gender gender, Case @case, string expected)
-        {
-            var actual = new CaseInflection(provider, gender).InflectFirstNameTo(firstName, @case);
-            Assert.AreEqual(expected, actual, string.Format("Gender: {0}, Case: {1}", gender, @case));
-        }
+    [Test]
+    [TestCaseSource(typeof(InflectionTestCaseDataFactory), nameof(InflectionTestCaseDataFactory.LastNamesInflectionData))]
+    public void Should_inflect_last_name_correctly(string lastName, Gender gender, Case @case, string expected)
+    {
+        var actual = new CaseInflection(_provider, gender).InflectLastNameTo(lastName, @case);
+        Assert.That(actual, Is.EqualTo(expected), $"Gender: {gender}, Case: {@case}");
+    }
 
-        [Test]
-        [TestCaseSource(typeof(InflectionTestCaseDataFactory), "LastNamesInflectionData")]
-        public void Should_inflect_last_name_correctly(string lastName, Gender gender, Case @case, string expected)
-        {
-            var actual = new CaseInflection(provider, gender).InflectLastNameTo(lastName, @case);
-            Assert.AreEqual(expected, actual, string.Format("Gender: {0}, Case: {1}", gender, @case));
-        }
-
-        [Test]
-        [TestCaseSource(typeof(InflectionTestCaseDataFactory), "MiddleNamesInflectionData")]
-        public void Should_inflect_middle_name_correctly(string middleName, Gender gender, Case @case, string expected)
-        {
-            var actual = new CaseInflection(provider, gender).InflectMiddleNameTo(middleName, @case);
-            Assert.AreEqual(expected, actual, string.Format("Gender: {0}, Case: {1}", gender, @case));
-        }
+    [Test]
+    [TestCaseSource(typeof(InflectionTestCaseDataFactory), nameof(InflectionTestCaseDataFactory.MiddleNamesInflectionData))]
+    public void Should_inflect_middle_name_correctly(string middleName, Gender gender, Case @case, string expected)
+    {
+        var actual = new CaseInflection(_provider, gender).InflectMiddleNameTo(middleName, @case);
+        Assert.That(actual, Is.EqualTo(expected), $"Gender: {gender}, Case: {@case}");
     }
 }

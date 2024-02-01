@@ -1,33 +1,23 @@
 ﻿using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 using NPetrovich.Rules.Data;
 using NPetrovich.Rules.Parser.Json;
-using NPetrovich.Rules.Parser.Yaml;
 
 namespace NPetrovich.Rules.Loader
 {
     public class EmbeddedResourceLoader : IRulesLoader
     {
-
-        public Data.Rules LoadYaml()
-        {
-            var resourceName = "NPetrovich.rules.yml";
-            using (var stream = GetManifestResourceStream(resourceName))
-            using (var reader = new StreamReader(stream))
-                return new YamlRulesParser().Parse(reader);
-        }
-
-        public Data.Rules LoadJson()
+        public async Task<Data.Rules> LoadJsonAsync()
         {
             var resourceName = "NPetrovich.rules.json";
             using (var stream = GetManifestResourceStream(resourceName))
-            using (var reader = new StreamReader(stream))
-                return new JsonRulesParser().Parse(reader);
+                return await new JsonRulesParser().ParseAsync(stream);
         }
 
-        public Data.Rules Load()
+        public async Task<Data.Rules> LoadAsync()
         {
-            return LoadYaml();
+            return await LoadJsonAsync();
         }
 
         private static Stream GetManifestResourceStream(string resourceName)
@@ -35,25 +25,16 @@ namespace NPetrovich.Rules.Loader
             return Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName);
         }
         
-        public GenderRules LoadGenderYaml()
-        {
-            var resourceName = "NPetrovich.gender.yml";
-            using (var stream = GetManifestResourceStream(resourceName))
-            using (var reader = new StreamReader(stream))
-                return new YamlRulesParser().ParseGender(reader);
-        }
-
-        public GenderRules LoadGenderJson()
+        public async Task<GenderRules> LoadGenderJsonAsync()
         {
             var resourceName = "NPetrovich.gender.json";
             using (var stream = GetManifestResourceStream(resourceName))
-            using (var reader = new StreamReader(stream))
-                return new JsonRulesParser().ParseGender(reader);
+                return await new JsonRulesParser().ParseGenderAsync(stream);
         }
 
-        public GenderRules LoadGender()
+        public async Task<GenderRules> LoadGenderAsync()
         {
-            return LoadGenderYaml();
+            return await LoadGenderJsonAsync();
         }
     }
 }

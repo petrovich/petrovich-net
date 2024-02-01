@@ -1,50 +1,46 @@
-﻿using System;
-using System.Globalization;
-using System.Threading;
-using RecycleBin.TextTables;
+﻿using System.Globalization;
 
-namespace NPetrovich.Eval.Data
+namespace NPetrovich.Eval.Data;
+
+public class EvalCase : IEvalCase
 {
-    internal class EvalCase : IEvalCase
+    private string _lemma;
+    private string _grammem;
+    private string _word;
+    private static readonly TextInfo CultureTextInfo = Thread.CurrentThread.CurrentCulture.TextInfo;
+
+    public string Grammemes
     {
-        private string _lemma;
-        private string _word;
-        private static readonly TextInfo CultureTextInfo = Thread.CurrentThread.CurrentCulture.TextInfo;
-
-        [Column("grammemes")]
-        public string Grammemes
+        get => _grammem;
+        set
         {
-            set
-            {
-                var splitted = value.Split(',');
-                if (splitted.Length != 3) throw new ArgumentException();
-                Gender = GrammemesParser.ParseGender(splitted[0]);
-                Case = GrammemesParser.ParseCase(splitted[2]);
-            }
+            _grammem = CultureTextInfo.ToLower(value);
+            var splitted = value.Split(',');
+            if (splitted.Length != 3) throw new ArgumentException();
+            Gender = GrammemesParser.ParseGender(splitted[0]);
+            Case = GrammemesParser.ParseCase(splitted[2]);
         }
+    }
 
-        [Column("lemma")]
-        public string Lemma
-        {
-            get { return _lemma; }
-            set { _lemma = CultureTextInfo.ToLower(value); }
-        }
+    public string Lemma
+    {
+        get => _lemma;
+        set => _lemma = CultureTextInfo.ToLower(value);
+    }
 
-        [Column("word")]
-        public string Word
-        {
-            get { return _word; }
-            set { _word = CultureTextInfo.ToLower(value); }
-        }
+    public string Word
+    {
+        get => _word;
+        set => _word = CultureTextInfo.ToLower(value);
+    }
 
-        public Gender Gender { get; set; }
-        public Case Case { get; set; }
+    public Gender Gender { get; set; }
+    public Case Case { get; set; }
 
-        public string Result { get; set; }
+    public string Result { get; set; }
 
-        public override string ToString()
-        {
-            return $"{Lemma} {Word} {Gender} {Case} - {Result}";
-        }
+    public override string ToString()
+    {
+        return $"{Lemma} {Word} {Gender} {Case} - {Result}";
     }
 }
