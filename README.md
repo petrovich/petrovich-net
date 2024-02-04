@@ -85,6 +85,13 @@ You can use your own rules loader which implements IRulesLoader interface:
 IRulesLoader customLoader = new CustomRulesLoader();
 var petrovich = new Petrovich(customLoader);
 ```
+### DI Extension
+
+You can use dependency injection extension:
+
+```csharp
+builder.Services.AddPetrovich();
+```
 
 ## Contributing
 
