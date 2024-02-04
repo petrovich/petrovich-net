@@ -3,6 +3,16 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <RootNamespace>NPetrovich.Extensions.DependencyInjection</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>2.0.1</Version>
+        <Title>DI Extensions for NPetrovich Library</Title>
+        <Authors>Aleksandr Sorokin</Authors>
+        <Description>DI Extensions for NPetrovich Library</Description>
+        <Copyright>Copyright 2024</Copyright>
+        <PackageProjectUrl>https://github.com/petrovich/petrovich-net</PackageProjectUrl>
+        <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
+        <PackageIcon>petrovich.png</PackageIcon>
+        <RepositoryUrl>https://github.com/petrovich/petrovich-net</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
@@ -11,6 +21,14 @@
 
     <ItemGroup>
       <ProjectReference Include="..\NPetrovich\NPetrovich.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="..\..\petrovich.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+        <Link>petrovich.png</Link>
+      </None>
     </ItemGroup>
 
 </Project>
